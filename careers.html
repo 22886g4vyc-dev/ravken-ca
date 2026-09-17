@@ -113,12 +113,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 
 <header id="siteHeader">
   <nav aria-label="Main">
-    <div class="logotype"><a href="index.html"><img src="Branding/ravken-navmark.png" alt="Ravken Environmental Solutions" width="935" height="230"></a></div>
+    <div class="logotype"><a href="index.html"><img src="Branding/ravken-navmark.svg" alt="Ravken Environmental Solutions" width="906" height="219"></a></div>
     <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu">
       <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -203,7 +204,7 @@
     <p class="req-note reveal">We support training for members who bring the attitude and want the certifications.</p>
     <div class="notice reveal" id="fitness-for-duty" style="margin-top:32px;">
       <h2>Safety-sensitive work</h2>
-      <p>All field positions are safety-sensitive. Employment is conditional on pre-employment drug and alcohol testing, and on site-access testing to the client's standard — on pipeline and energy sites that is usually the Canadian Model for Providing a Safe Workplace. Reasonable-cause and post-incident testing apply under Ravken's drug and alcohol policy. Ravken accommodates disability, including substance dependence, in line with the BC Human Rights Code.</p>
+      <p>All field positions are safety-sensitive and subject to Ravken's drug and alcohol policy and to client site-access requirements, which on pipeline and energy sites usually follow the Canadian Model for Providing a Safe Workplace. Ravken accommodates disability, including substance dependence, in line with the BC Human Rights Code.</p>
     </div>
   </div>
 </section>
@@ -258,16 +259,12 @@
           <span class="cf-label">Availability</span>
           <input type="text" name="availability" required placeholder="e.g. available from spring 2027; seasonal; full-time">
         </label>
-        <label class="cf-field">
-          <span class="cf-label">Résumé <span class="cf-opt">optional · PDF or Word, up to 5 MB</span></span>
-          <input type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-        </label>
         <input type="hidden" name="form" value="careers">
         <input type="hidden" name="_subject" value="Careers expression of interest — ravken.ca">
         <input type="text" name="_gotcha" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="cf-actions">
           <button type="submit" class="btn btn-solid">Register Your Interest</button>
-          <p class="cf-fallback">Or email <a href="mailto:careers@ravken.ca">careers@ravken.ca</a> with your résumé and certifications.</p>
+          <p class="cf-fallback">Email your résumé to <a href="mailto:careers@ravken.ca">careers@ravken.ca</a> after you register.</p>
         </div>
         <p class="cf-status" role="status" aria-live="polite"></p>
       </form>

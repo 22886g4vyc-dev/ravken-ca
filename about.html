@@ -113,12 +113,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 
 <header id="siteHeader">
   <nav aria-label="Main">
-    <div class="logotype"><a href="index.html"><img src="Branding/ravken-navmark.png" alt="Ravken Environmental Solutions" width="935" height="230"></a></div>
+    <div class="logotype"><a href="index.html"><img src="Branding/ravken-navmark.svg" alt="Ravken Environmental Solutions" width="906" height="219"></a></div>
     <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu">
       <svg class="ic-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       <svg class="ic-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -163,7 +164,7 @@
             <g class="pin" id="pin-kemess" tabindex="0" role="button" aria-label="Kemess Mine" data-name="Kemess Mine" data-kind="Mine" data-note="Copper-gold mine in north-central BC, north of Takla Lake." transform="translate(-42.3,146.5)"><path d="M 0,-7 L 7,0 L 0,7 L -7,0 Z"/><text class="pin-label" x="10" y="4">Kemess Mine</text></g>
             <g class="pin" id="pin-prgt" tabindex="0" role="button" aria-label="PRGT Pipeline" data-name="PRGT Pipeline" data-kind="Pipeline" data-note="Natural gas pipeline route across the Skeena and Nass watersheds; the pin marks the Kispiox-area crossing north of Hazelton." transform="translate(-62.1,207.9)"><path d="M 0,-7 L 7,0 L 0,7 L -7,0 Z"/><text class="pin-label" x="10" y="4">PRGT Pipeline</text></g>
           </svg>
-          <div class="map-popup" id="map-popup" hidden></div>
+          <div class="map-popup" id="map-popup" role="status" aria-live="polite" hidden></div>
         </div>
         <div class="map-legend">
           <span class="legend-item"><span class="dot project"></span>Major project</span>
@@ -214,7 +215,7 @@
       </div>
       <div class="os-item">
         <h3>Regulatory Experience</h3>
-        <p>Two decades of permitting and compliance work with provincial and federal regulators across Northwest BC — applications, conditions and reporting that hold up to review.</p>
+        <p>Our principal brings two decades of permitting and compliance work with provincial and federal regulators across Northwest BC — applications, conditions and reporting that hold up to review.</p>
       </div>
     </div>
   </div>

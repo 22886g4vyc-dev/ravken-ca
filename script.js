@@ -48,6 +48,7 @@ if (mapCanvas && popup) {
     pin.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(); } });
   });
   document.addEventListener('click', (e) => { if (!mapCanvas.contains(e.target)) closePopup(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePopup(); });
 }
 
 /* ---------------------------------------------------------------------------
@@ -63,16 +64,14 @@ if (mapCanvas && popup) {
    and says so on the page. That is the safe failure: an enquiry can never be
    typed, sent, and silently lost. Paste the URL below and the forms go live.
 
-   File uploads (the careers résumé) are sent as multipart form data. If the
-   mail service refuses the attachment, the submission is retried without it
-   and the applicant is told to email the résumé — the details are never lost.
+   There is no file upload: the mail service's free plan does not accept
+   attachments, so applicants are asked to email a résumé after registering.
 --------------------------------------------------------------------------- */
 const FORM_ENDPOINT = 'https://formspree.io/f/xoeagkyw';
 /* Optional per-form endpoints. Leave empty and the form uses FORM_ENDPOINT.
    When careers@ravken.ca exists, create a second Formspree form that delivers
    to it and paste that form's URL as `careers` — nothing else to change. */
 const FORM_ENDPOINTS = { careers: 'https://formspree.io/f/mbgrnzeb' };
-const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
 /* contact.html#capability — arrived from "Request our capability statement":
    pre-fill the message so the request is one click and one send. */
@@ -117,13 +116,6 @@ document.querySelectorAll('form[data-form]').forEach((form) => {
     if (!form.reportValidity()) return;
     if (form.elements._gotcha && form.elements._gotcha.value) return; // bot
 
-    const fileInput = form.querySelector('input[type=file]');
-    const file = fileInput && fileInput.files && fileInput.files[0];
-    if (file && file.size > MAX_UPLOAD_BYTES) {
-      say('err', 'That file is larger than 5 MB. Please attach a smaller copy, or leave it off and email it to us afterwards.');
-      fileInput.focus();
-      return;
-    }
 
     const original = submitBtn.textContent;
     submitBtn.disabled = true;
@@ -135,23 +127,9 @@ document.querySelectorAll('form[data-form]').forEach((form) => {
     const doneMsg = form.dataset.success || 'Thank you — your message has been sent. You will get a reply at the address you gave.';
 
     try {
-      if (file) {
-        try {
-          await post(data, false);
-          form.reset();
-          say('ok', doneMsg);
-        } catch (err) {
-          // Retry without the attachment so the applicant's details still arrive.
-          await post(JSON.stringify(plain), true);
-          form.reset();
-          say('ok', `${doneMsg} The attachment could not be sent with the form — please email it to ${MAILTO} and mention your name.`);
-          console.warn('[form] attachment refused, details sent without it:', err);
-        }
-      } else {
-        await post(JSON.stringify(plain), true);
-        form.reset();
-        say('ok', doneMsg);
-      }
+      await post(JSON.stringify(plain), true);
+      form.reset();
+      say('ok', doneMsg);
     } catch (err) {
       say('err', `Your message did not send — ${err.message}. Nothing was received on our end, so please email ${MAILTO} directly rather than waiting for a reply.`);
       console.error('[form] submission failed:', err);
