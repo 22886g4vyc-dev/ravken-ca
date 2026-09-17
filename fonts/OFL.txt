@@ -1,0 +1,8 @@
+Figtree is licensed under the SIL Open Font License, Version 1.1.
+Copyright (c) Erik Kennedy (https://github.com/erikdkennedy/figtree)
+
+Full licence text: https://openfontlicense.org/
+Source: https://fonts.google.com/specimen/Figtree
+
+Self-hosted here as two variable-weight WOFF2 subsets (latin, latin-ext),
+covering weights 400-900, downloaded from fonts.gstatic.com on 25 August 2026.

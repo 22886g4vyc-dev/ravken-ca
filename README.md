@@ -1,16 +1,10 @@
-# ravken.ca — splash page
+# ravken.ca
 
-The public holding page for Ravken Environmental Solutions Inc.
-Served by GitHub Pages. This repo is public because everything in it
-is served publicly anyway.
+Public site for Ravken Environmental Solutions Inc., served by GitHub Pages.
+This repo is public because everything in it is served publicly anyway.
 
-**Source of truth:** this page is generated from `Website/_splash/` in the
-private `ravken-site` repo. Edit it there, re-run the audit, then copy across.
+**Source of truth:** the private `ravken-site` repo. Edit there, run the
+audit, then copy across. Do not edit here.
 
-**Pre-deploy gate — must pass before any change ships:**
-
-    cd "09_Systems and IT/Site Audit" && python3 review_site.py "../Website/_splash"
-
-Exits non-zero on any failure. Last run: 16 passed, 0 warnings, 0 failures.
-
-The full site (services, about, contact) is deliberately not published yet.
+**Pre-deploy gate:** `09_Systems and IT/Site Audit/review_site.py` must exit 0
+on the source before any copy ships.
